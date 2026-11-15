@@ -6,13 +6,22 @@
 <title>Card Detective: Scan &amp; Price Sports Cards, Pokémon, Yu-Gi-Oh! &amp; Magic | iOS</title>
 <meta name="description" content="Card Detective identifies baseball, basketball, football, hockey, Pokémon, Yu-Gi-Oh! and Magic: The Gathering cards from one photo and shows current eBay asking prices. 10 free scans a month on iOS.">
 <link rel="canonical" href="https://bchris97.github.io/card-detective-web/">
+<meta name="apple-itunes-app" content="app-id=6766113008">
+<meta name="theme-color" content="#171210">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Card Detective: Every card has a story. Crack the case.">
 <meta property="og:description" content="Snap a photo. Identify the card. See current asking prices from live eBay listings for sports cards, Pokémon, Yu-Gi-Oh! and Magic: The Gathering.">
 <meta property="og:url" content="https://bchris97.github.io/card-detective-web/">
 <meta property="og:site_name" content="Card Detective">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://bchris97.github.io/card-detective-web/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Card Detective: snap a card, see what it's worth">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bchris97.github.io/card-detective-web/og.png">
 <meta name="twitter:title" content="Card Detective: Scan &amp; Price Trading Cards on iOS">
 <meta name="twitter:description" content="Identify sports cards, Pokémon, Yu-Gi-Oh! and Magic cards from a photo and see current eBay asking prices. 10 free scans a month.">
 <meta name="twitter:url" content="https://bchris97.github.io/card-detective-web/">
@@ -20,10 +29,16 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "MobileApplication",
   "name": "Card Detective",
-  "operatingSystem": "iOS",
+  "operatingSystem": "iOS 15.1 or later",
   "applicationCategory": "UtilitiesApplication",
+  "image": "https://bchris97.github.io/card-detective-web/og.png",
+  "screenshot": [
+    "https://bchris97.github.io/card-detective-web/img/scan.webp",
+    "https://bchris97.github.io/card-detective-web/img/result.webp",
+    "https://bchris97.github.io/card-detective-web/img/collection.webp"
+  ],
   "description": "Card Detective identifies sports cards (baseball, basketball, football, hockey), Pokémon, Yu-Gi-Oh! and Magic: The Gathering cards from a photo and shows current asking prices from live eBay listings and TCG market data.",
   "url": "https://bchris97.github.io/card-detective-web/",
   "installUrl": "https://apps.apple.com/app/apple-store/id6766113008",
@@ -40,14 +55,14 @@
       "name": "Card Detective Pro Monthly",
       "price": "4.99",
       "priceCurrency": "USD",
-      "description": "Unlimited scans, cloud backup, unlimited collection storage"
+      "description": "250 scans a month, cloud backup, Value Trend, price history and graded prices, price paid tracking and spreadsheet export"
     },
     {
       "@type": "Offer",
       "name": "Card Detective Pro Yearly",
       "price": "39.99",
       "priceCurrency": "USD",
-      "description": "Unlimited scans, cloud backup, unlimited collection storage"
+      "description": "250 scans a month, cloud backup, Value Trend, price history and graded prices, price paid tracking and spreadsheet export"
     }
   ]
 }
@@ -78,7 +93,23 @@
       "name": "Is Card Detective free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. You get 10 free scans every month, no account required. Card Detective Pro unlocks unlimited scans, cloud backup, and unlimited collection storage for $4.99/month or $39.99/year."
+        "text": "Yes. Card Detective is free to download and includes 10 scans every month, with no account needed. Card Detective Pro is $4.99/month or $39.99/year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Pro include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "250 scans a month, cloud backup of your collection and card photos, a Value Trend chart for your collection, price history and graded prices for each card, tracking what you paid, and exporting your collection as a spreadsheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "New subscribers may be offered a 7-day free trial of Pro. If you're eligible, the upgrade screen shows it. Cancel before the trial ends and you won't be charged."
       }
     },
     {
@@ -94,7 +125,7 @@
       "name": "Is my collection private?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your collection is stored on your device. Card photos are sent securely to our server only to identify the card. No account or sign-up is required, and Pro subscribers get optional encrypted cloud backup of their collection."
+        "text": "There's no account or sign-up, and your collection is stored on your iPhone. Photos you scan are sent to our server to identify the card and aren't kept afterwards, unless you back up your collection with Pro."
       }
     }
   ]
@@ -299,6 +330,25 @@
   .faq details[open] summary::after { content: "–"; }
   .faq .a { padding: 0 20px 18px; color: var(--ink-dim); font-size: 14.5px; }
 
+  /* ── Screenshots ── */
+  .shots {
+    display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 4px 20px 18px; margin: 0 -20px; -webkit-overflow-scrolling: touch;
+  }
+  .shots figure { flex: 0 0 auto; width: 220px; scroll-snap-align: center; margin: 0; }
+  .shots img { width: 220px; height: auto; aspect-ratio: 552 / 1200; display: block; border-radius: 14px; border: 1px solid var(--border); background: #0a0a0d; }
+  @media (min-width: 960px) { .shots { justify-content: center; flex-wrap: wrap; overflow: visible; } .shots figure { width: 260px; } .shots img { width: 260px; } }
+  .scroll-hint { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--ink-mute); letter-spacing: 0.08em; margin-top: 4px; }
+  @media (min-width: 960px) { .scroll-hint { display: none; } }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+  .feature { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .feature h3 { font-size: 15.5px; margin-bottom: 6px; }
+  .feature p { color: var(--ink-dim); font-size: 14px; }
+  .feature .tier { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; color: var(--gold); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; margin-left: 6px; vertical-align: 2px; }
+  @media (max-width: 820px) { .features { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
+
   /* ── Footer ── */
   footer { border-top: 1px solid var(--border); padding: 44px 0 56px; text-align: center; }
   footer .cta-row { margin-bottom: 26px; }
@@ -319,7 +369,7 @@
       </svg>
       Card Detective
     </a>
-    <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6766113008?ct=web_nav&amp;mt=8">GET THE APP</a>
+    <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_nav&amp;mt=8">GET THE APP</a>
   </div>
 </nav>
 
@@ -357,7 +407,7 @@
     </div>
 
     <div class="cta-row">
-      <a class="btn-primary" href="https://apps.apple.com/app/apple-store/id6766113008?ct=web_hero&amp;mt=8">Download on the App Store</a>
+      <a class="btn-primary" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_hero&amp;mt=8">Download on the App Store</a>
       <span class="free-note">10 FREE SCANS / MONTH · NO ACCOUNT NEEDED</span>
     </div>
 
@@ -399,6 +449,64 @@
   </div>
 </section>
 
+<section id="app" aria-labelledby="app-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="evidence-tag">Exhibit B</span>
+      <h2 id="app-h">See the app in action</h2>
+      <p>Real screens from Card Detective on iPhone.</p>
+    </div>
+    <div class="shots">
+      <figure>
+        <img src="img/scan.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Card Detective camera screen: use camera or choose from library">
+      </figure>
+      <figure>
+        <img src="img/result.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Scan result showing the identified card with low, average and high asking prices">
+      </figure>
+      <figure>
+        <img src="img/graded.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Card detail with estimated value, price history and graded prices">
+      </figure>
+      <figure>
+        <img src="img/home.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Home screen with total collection value, top card and recent scans">
+      </figure>
+      <figure>
+        <img src="img/value-trend.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Collection screen with the Value Trend chart">
+      </figure>
+      <figure>
+        <img src="img/collection.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Collection list sorted by value with search and filter chips">
+      </figure>
+    </div>
+    <p class="scroll-hint">SWIPE FOR MORE →</p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>Groups</h3>
+        <p>Sort cards into named groups, like a pack, a box or a player PC, each with its own total.</p>
+      </div>
+      <div class="feature">
+        <h3>Quantities</h3>
+        <p>Own three of the same card? Set the quantity once and every total counts them.</p>
+      </div>
+      <div class="feature">
+        <h3>Value Trend <span class="tier">PRO</span></h3>
+        <p>A chart of what your current cards are worth over time. Drag across it to read any day.</p>
+      </div>
+      <div class="feature">
+        <h3>What you paid <span class="tier">PRO</span></h3>
+        <p>Record your cost per card or for a whole group, and see it next to today's asking prices.</p>
+      </div>
+      <div class="feature">
+        <h3>Spreadsheet export <span class="tier">PRO</span></h3>
+        <p>Export your collection as a CSV file to open in Numbers, Excel or Google Sheets.</p>
+      </div>
+      <div class="feature">
+        <h3>Cloud backup <span class="tier">PRO</span></h3>
+        <p>Your cards and card photos are backed up, so a new phone picks up where you left off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="evidence" aria-labelledby="ev-h">
   <div class="wrap">
     <div class="sec-head">
@@ -417,11 +525,11 @@
       </div>
       <div class="fact">
         <h3>Graded benchmark</h3>
-        <p>Ungraded card? See what the same card asks for in a PSA 9 holder, so you know if grading could pay off.</p>
+        <p>Ungraded card? See what the same card asks for in a PSA 9 holder, so you know if grading could pay off. Pro shows asking prices across grades.</p>
       </div>
       <div class="fact">
         <h3>Private by design</h3>
-        <p>No account, no sign-up. Your collection lives on your device; card photos are sent securely only to identify the card. Pro adds optional cloud backup.</p>
+        <p>No account, no sign-up. Your collection lives on your iPhone, and scan photos aren't kept after identification. Pro adds cloud backup so you can restore on a new phone.</p>
       </div>
     </div>
   </div>
@@ -453,7 +561,7 @@
       <button type="submit">Render the verdict</button>
       <div class="verdict-zone" id="verdictZone" aria-live="polite"></div>
       <div class="calc-cta">
-        <a href="https://apps.apple.com/app/apple-store/id6766113008?ct=web_grade_tool&amp;mt=8">Get real numbers for your card. Scan it free →</a>
+        <a href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_grade_tool&amp;mt=8">Get real numbers for your card. Scan it free →</a>
       </div>
       <p class="calc-note">Rule-of-thumb estimate only. Grading outcomes vary; a card that grades PSA 8 or lower may be worth less than expected.</p>
     </form>
@@ -474,7 +582,8 @@
         <ul>
           <li>10 scans every month</li>
           <li>Full identification &amp; pricing</li>
-          <li>Collection on your device</li>
+          <li>PSA 9 benchmark for raw cards</li>
+          <li>Collection, groups &amp; quantities on your iPhone</li>
         </ul>
       </div>
       <div class="plan best">
@@ -483,10 +592,11 @@
         <div class="price">$39.99</div>
         <div class="per">per year</div>
         <ul>
-          <li>Unlimited card scans</li>
-          <li>Cloud backup of your collection</li>
-          <li>Unlimited collection storage</li>
-          <li>Collection value tracking</li>
+          <li>250 scans a month</li>
+          <li>Cloud backup of cards &amp; photos</li>
+          <li>Value Trend for your collection</li>
+          <li>Price history &amp; graded prices</li>
+          <li>What you paid + spreadsheet export</li>
         </ul>
       </div>
       <div class="plan">
@@ -494,14 +604,16 @@
         <div class="price">$4.99</div>
         <div class="per">per month</div>
         <ul>
-          <li>Unlimited card scans</li>
-          <li>Cloud backup of your collection</li>
-          <li>Unlimited collection storage</li>
-          <li>Collection value tracking</li>
+          <li>250 scans a month</li>
+          <li>Cloud backup of cards &amp; photos</li>
+          <li>Value Trend for your collection</li>
+          <li>Price history &amp; graded prices</li>
+          <li>What you paid + spreadsheet export</li>
         </ul>
       </div>
     </div>
-    <p class="pricing-legal">Subscriptions auto-renew unless cancelled at least 24 hours before renewal. Manage anytime in App Store settings.</p>
+    <p class="pricing-legal" style="color:var(--ink-dim);font-size:14px">New subscribers may be offered a 7-day free trial.</p>
+    <p class="pricing-legal" style="margin-top:8px">Subscriptions auto-renew unless cancelled at least 24 hours before renewal. Manage anytime in App Store settings.</p>
   </div>
 </section>
 
@@ -522,7 +634,15 @@
       </details>
       <details>
         <summary>Is Card Detective free?</summary>
-        <p class="a">Yes. You get 10 free scans every month, no account required. Card Detective Pro unlocks unlimited scans, cloud backup, and unlimited collection storage for $4.99/month or $39.99/year.</p>
+        <p class="a">Yes. Card Detective is free to download and includes 10 scans every month, with no account needed. Card Detective Pro is $4.99/month or $39.99/year.</p>
+      </details>
+      <details>
+        <summary>What does Pro include?</summary>
+        <p class="a">250 scans a month, cloud backup of your collection and card photos, a Value Trend chart for your collection, price history and graded prices for each card, tracking what you paid, and exporting your collection as a spreadsheet.</p>
+      </details>
+      <details>
+        <summary>Is there a free trial?</summary>
+        <p class="a">New subscribers may be offered a 7-day free trial of Pro. If you're eligible, the upgrade screen shows it. Cancel before the trial ends and you won't be charged.</p>
       </details>
       <details>
         <summary>Can it estimate graded card value?</summary>
@@ -530,7 +650,7 @@
       </details>
       <details>
         <summary>Is my collection private?</summary>
-        <p class="a">Your collection is stored on your device. Card photos are sent securely to our server only to identify the card. No account or sign-up is required, and Pro subscribers get optional encrypted cloud backup of their collection.</p>
+        <p class="a">There's no account or sign-up, and your collection is stored on your iPhone. Photos you scan are sent to our server to identify the card and aren't kept afterwards, unless you back up your collection with Pro. Details are in the <a href="https://bchris97.github.io/carddetective-support/privacy.html" style="color:var(--gold-bright)">privacy policy</a>.</p>
       </details>
     </div>
   </div>
@@ -539,7 +659,7 @@
 <footer>
   <div class="wrap">
     <div class="cta-row">
-      <a class="btn-primary" href="https://apps.apple.com/app/apple-store/id6766113008?ct=web_footer&amp;mt=8">Download Card Detective</a>
+      <a class="btn-primary" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_footer&amp;mt=8">Download Card Detective</a>
     </div>
     <div class="foot-links">
       <a href="https://bchris97.github.io/carddetective-support/privacy.html">Privacy Policy</a>
