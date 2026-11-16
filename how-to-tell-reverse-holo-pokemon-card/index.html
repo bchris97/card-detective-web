@@ -101,6 +101,10 @@
   .photos figcaption, .boxes figcaption { font-size: 13.5px; color: var(--ink-dim); margin-top: 8px; text-align: center; line-height: 1.4; }
   .photos figcaption strong, .boxes figcaption strong { color: var(--ink); display: block; }
   .boxes { display: grid; gap: 14px; margin: 16px 0 6px; }
+  @media (max-width: 639px) {
+    .boxes figure { display: grid; grid-template-columns: 52% 1fr; gap: 12px; align-items: center; }
+    .boxes figcaption { margin-top: 0; text-align: left; }
+  }
   @media (min-width: 640px) { .boxes { grid-template-columns: 1fr 1fr 1fr; } }
   .photo-note { font-size: 13px; color: var(--ink-mute); text-align: center; margin-bottom: 4px; }
   .cta { background: var(--bg-card); border: 1px solid var(--gold); border-radius: 12px; padding: 24px 22px; text-align: center; margin: 44px 0; }
