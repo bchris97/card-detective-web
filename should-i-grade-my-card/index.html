@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Should I Grade My Card? Free Card Grading Calculator | Card Detective</title>
+<meta name="description" content="Find out if grading a sports card or Pokémon card is worth it. Enter the raw value, graded prices and fees, and the calculator weighs the chance of a lower grade.">
+<link rel="canonical" href="https://carddetective.app/should-i-grade-my-card/">
+<meta name="apple-itunes-app" content="app-id=6766113008">
+<meta name="theme-color" content="#171210">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Should I grade my card? Free grading calculator">
+<meta property="og:description" content="Weigh the grading fee against what a good grade, and a disappointing one, would be worth.">
+<meta property="og:url" content="https://carddetective.app/should-i-grade-my-card/">
+<meta property="og:site_name" content="Card Detective">
+<meta property="og:image" content="https://carddetective.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://carddetective.app/og.png">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it worth grading a card worth less than $20?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually not. Once you add the grading fee and shipping and insurance both ways, a low-value card has to jump a lot in value just to break even, and a mid grade often sells for about the same as the raw card. The exceptions are cards whose top grades sell for many times the raw price." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does grading always increase a card's value?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Grading adds value when the card comes back in a high grade that buyers pay extra for. A lower grade can be worth the same as the raw card, or less once fees are counted, because the flaws are now printed on the label." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which prices should I use in the calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use recent sold prices for the same card where you can find them. Asking prices, what sellers list cards for, usually run higher than what cards actually sell for, so they make grading look better than it is. Card Detective shows current asking prices, including a PSA 9 benchmark, as a starting point." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my card will get a high grade?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Check four things under good light: centering (are the borders even on all sides?), corners (sharp, no white or rounding), edges (no chipping or whitening) and surface (no scratches, print lines, dents or stains). A single visible flaw usually rules out the top grades." }
+    }
+  ]
+}
+</script>
+<style>
+  .wrap { max-width: 760px; }
+  .lede { color: var(--ink-dim); font-size: 17px; max-width: 600px; margin: 0 auto; }
+  .calc {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 26px 22px; margin-bottom: 44px;
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+  .field input, .field select {
+    width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--ink);
+    font-size: 17px; padding: 12px 14px; border-radius: 8px; font-family: var(--mono);
+  }
+  .field select { font-family: var(--sans); font-size: 16px; }
+  .field .hint { font-size: 12.5px; color: var(--ink-mute); margin-top: 5px; }
+  .calc button {
+    width: 100%; background: var(--gold); color: #1c1508; border: none; font-weight: 800;
+    font-size: 16px; padding: 14px; border-radius: 8px; cursor: pointer; font-family: var(--sans);
+  }
+  .calc button:hover { background: var(--gold-bright); }
+  input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 2px; }
+  #result { margin-top: 22px; }
+  .verdict { text-align: center; padding: 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); }
+  .verdict .label { font-family: var(--mono); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; font-size: 22px; }
+  .verdict.grade .label { color: #6fae6a; }
+  .verdict.tossup .label { color: var(--gold-bright); }
+  .verdict.skip .label { color: #d9705c; }
+  .verdict p { color: var(--ink-dim); font-size: 14.5px; margin-top: 8px; }
+  .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+  @media (max-width: 600px) { .outcomes { grid-template-columns: 1fr; } }
+  .outcome { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
+  .outcome .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mute); }
+  .outcome .v { font-size: 20px; font-weight: 800; margin-top: 4px; }
+  .pos { color: #6fae6a; } .neg { color: #d9705c; }
+  .note { font-size: 12.5px; color: var(--ink-mute); margin-top: 14px; text-align: center; }
+  article h2 { font-size: 22px; letter-spacing: -0.01em; margin: 40px 0 12px; }
+  article h3 { font-size: 16.5px; margin: 20px 0 6px; }
+  article p, article li { color: var(--ink-dim); font-size: 16px; }
+  article p + p { margin-top: 12px; }
+  article ul { padding-left: 22px; margin-top: 8px; }
+  article li + li { margin-top: 8px; }
+  article ul + p { margin-top: 14px; }
+  article strong { color: var(--ink); }
+  .formula { font-family: var(--mono); font-size: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 14px 0; color: var(--ink); overflow-x: auto; }
+  .cta { background: var(--bg-card); border: 1px solid var(--gold); border-radius: 12px; padding: 24px 22px; text-align: center; margin: 44px 0; }
+  .cta h2 { margin: 0 0 6px; font-size: 20px; }
+  .cta p { color: var(--ink-dim); }
+  .faq { margin-top: 14px; }
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Card Detective home">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7.5" stroke="#d4a33d" stroke-width="2.4"/>
+        <line x1="16.6" y1="16.6" x2="23" y2="23" stroke="#d4a33d" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      Card Detective
+    </a>
+    <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_grade_nav&amp;mt=8">GET THE APP</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="page">
+    <span class="tag">Free Tool</span>
+    <h1>Should I grade my card?</h1>
+    <p class="lede">Grading pays off only when a good grade is likely and worth a lot more than the raw card. Enter your numbers and this calculator weighs both outcomes.</p>
+  </header>
+
+  <form class="calc" id="calc" novalidate>
+    <div class="grid">
+      <div class="field">
+        <label for="raw">Raw card value ($)</label>
+        <input id="raw" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 40">
+        <p class="hint">What the ungraded card sells for today.</p>
+      </div>
+      <div class="field">
+        <label for="fee">Grading cost per card ($)</label>
+        <input id="fee" type="number" inputmode="decimal" min="0" step="0.01" value="30">
+        <p class="hint">Grading fee plus shipping and insurance both ways. Check the grader's current prices.</p>
+      </div>
+      <div class="field">
+        <label for="high">If it grades well ($)</label>
+        <input id="high" type="number" inputmode="decimal" min="0" step="0.01" placeholder="e.g. 120">
+        <p class="hint">The grade you're hoping for, e.g. a PSA 9.</p>
+      </div>
+      <div class="field">
+        <label for="low">If it grades lower ($)</label>
+        <input id="low" type="number" inputmode="decimal" min="0" step="0.01" placeholder="optional">
+        <p class="hint">One step down, e.g. a PSA 8. Blank = same as raw.</p>
+      </div>
+    </div>
+    <div class="field">
+      <label for="odds">How likely is the good grade?</label>
+      <select id="odds">
+        <option value="0.8">Very likely: sharp corners, clean surface, well centered</option>
+        <option value="0.5" selected>Could go either way</option>
+        <option value="0.25">Unlikely: off-center, or a small flaw I can see</option>
+      </select>
+    </div>
+    <button type="submit">Should I grade it?</button>
+    <div id="result" aria-live="polite"></div>
+    <p class="note">An estimate from your own numbers, not a prediction of any grade. Selling fees and time to sell aren't included.</p>
+  </form>
+
+  <article>
+    <h2>How the calculator decides</h2>
+    <p>Grading has two possible results, and the calculator prices both. If the card comes back in the grade you hoped for, you gain the graded price minus what you paid to grade it and the raw card you gave up. If it comes back a step lower, you get the lower graded price instead, which is often close to the raw value, so the fee is lost.</p>
+    <div class="formula">expected gain = (chance × good-grade price) + ((1 − chance) × lower-grade price) − raw value − grading cost</div>
+    <p>It says <strong>Grade it</strong> when the expected gain is positive and worth the trouble (at least $10 and a quarter of the raw value), <strong>Toss-up</strong> when it's only slightly positive, and <strong>Don't grade</strong> when you'd expect to lose money.</p>
+
+    <h2>What grading really costs</h2>
+    <p>The grading fee is only part of it. Count all of these per card:</p>
+    <ul>
+      <li><strong>The grading fee</strong>, which depends on the service level and, at most companies, on the card's declared value. Higher-value cards cost more to grade.</li>
+      <li><strong>Shipping and insurance both ways.</strong> Sending one card at a time makes this a big share of the cost; it's cheaper per card in a batch.</li>
+      <li><strong>Supplies</strong>: card savers or semi-rigid holders and a sturdy box.</li>
+      <li><strong>Time.</strong> Turnaround can run from weeks to months at the cheapest service levels, and prices can move while you wait.</li>
+    </ul>
+
+    <h2>When grading usually pays off</h2>
+    <ul>
+      <li>The card is in near-perfect condition and <strong>the top grades sell for several times the raw price</strong>.</li>
+      <li>Key rookie cards and popular players or characters, where buyers specifically look for graded copies.</li>
+      <li>Older cards in unusually good condition, because few survived that way.</li>
+      <li>You plan to sell, and buyers of that card pay more for a slab they can trust.</li>
+    </ul>
+
+    <h2>When to keep it raw</h2>
+    <ul>
+      <li>The raw card is worth less than the grading cost. Even a strong grade rarely rescues it.</li>
+      <li>You can see a flaw: a soft corner, whitening on the edges, a scratch, or uneven borders.</li>
+      <li>Graded copies of that card are plentiful and sell for little more than raw ones.</li>
+      <li>You're keeping it for yourself and don't need the label.</li>
+    </ul>
+
+    <h2>Check the condition before you send it</h2>
+    <p>Look at the card under a bright light, ideally with a magnifier, and tilt it to catch the surface.</p>
+    <ul>
+      <li><strong>Centering:</strong> compare the borders left to right and top to bottom, front and back.</li>
+      <li><strong>Corners:</strong> all four should be sharp, with no white showing and no rounding.</li>
+      <li><strong>Edges:</strong> no chipping or white specks, especially on dark borders.</li>
+      <li><strong>Surface:</strong> no scratches, print lines, dents, creases or stains. Shiny cards hide scratches until you tilt them.</li>
+    </ul>
+    <p>If you find anything, pick "Unlikely" in the calculator and see whether grading still makes sense.</p>
+
+    <h2>Where to find the numbers</h2>
+    <p>The best inputs are <strong>recent sold prices</strong> for your exact card: same year, set, card number and parallel. Asking prices, what sellers are listing a card for right now, usually run higher than what cards actually sell for, so using them makes grading look better than it is.</p>
+    <p>Card Detective identifies the card from a photo and shows what sellers are asking for it today, raw and as a PSA 9, so you have a starting point in seconds. Pro also shows asking prices across grades.</p>
+  </article>
+
+  <div class="cta">
+    <h2>Not sure what your card is?</h2>
+    <p>Snap a photo and Card Detective identifies it and shows current asking prices. 10 free scans a month, no account needed.</p>
+    <a class="btn" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_grade_page&amp;mt=8">Download on the App Store</a>
+  </div>
+
+  <h2 class="sec">Questions</h2>
+  <div class="faq">
+    <details>
+      <summary>Is it worth grading a card worth less than $20?</summary>
+      <div class="a"><p>Usually not. Once you add the grading fee and shipping and insurance both ways, a low-value card has to jump a lot in value just to break even, and a mid grade often sells for about the same as the raw card. The exceptions are cards whose top grades sell for many times the raw price.</p></div>
+    </details>
+    <details>
+      <summary>Does grading always increase a card's value?</summary>
+      <div class="a"><p>No. Grading adds value when the card comes back in a high grade that buyers pay extra for. A lower grade can be worth the same as the raw card, or less once fees are counted, because the flaws are now printed on the label.</p></div>
+    </details>
+    <details>
+      <summary>Which prices should I use in the calculator?</summary>
+      <div class="a"><p>Use recent sold prices for the same card where you can find them. Asking prices, what sellers list cards for, usually run higher than what cards actually sell for, so they make grading look better than it is. Card Detective shows current asking prices, including a PSA 9 benchmark, as a starting point.</p></div>
+    </details>
+    <details>
+      <summary>How do I know if my card will get a high grade?</summary>
+      <div class="a"><p>Check four things under good light: centering (are the borders even on all sides?), corners (sharp, no white or rounding), edges (no chipping or whitening) and surface (no scratches, print lines, dents or stains). A single visible flaw usually rules out the top grades.</p></div>
+    </details>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/should-i-grade-my-card/">Grading calculator</a>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+    </div>
+    <p class="copyright">© 2026 CARD DETECTIVE</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return (n < 0 ? "−$" : "$") + Math.abs(n).toFixed(2); };
+  var signed = function (n) { return (n >= 0 ? "+" : "") + money(n); };
+  $("calc").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var raw = parseFloat($("raw").value), high = parseFloat($("high").value);
+    var fee = parseFloat($("fee").value) || 0, lowIn = parseFloat($("low").value);
+    var p = parseFloat($("odds").value);
+    var out = $("result");
+    if (isNaN(raw) || isNaN(high) || raw < 0 || high < 0) {
+      out.innerHTML = '<div class="verdict"><p>Enter the raw value and the good-grade price to get a verdict.</p></div>';
+      return;
+    }
+    var lowGuess = isNaN(lowIn);
+    var low = lowGuess ? raw : lowIn;
+    var good = high - raw - fee, bad = low - raw - fee;
+    var expected = p * good + (1 - p) * bad;
+    var cls, label, why;
+    if (expected >= Math.max(10, raw * 0.25)) {
+      cls = "grade"; label = "Grade it";
+      why = "On average you'd come out about " + money(expected) + " ahead, even counting the chance of a lower grade.";
+    } else if (expected > 0) {
+      cls = "tossup"; label = "Toss-up";
+      why = "On average you'd gain only about " + money(expected) + ". Grade it if you want the slab, not for the money.";
+    } else {
+      cls = "skip"; label = "Don't grade";
+      why = "On average you'd lose about " + money(-expected) + " after the grading cost. Keep it raw.";
+    }
+    out.innerHTML =
+      '<div class="verdict ' + cls + '"><div class="label">' + label + '</div><p>' + why + '</p></div>' +
+      '<div class="outcomes">' +
+        '<div class="outcome"><div class="k">If it grades well</div><div class="v ' + (good >= 0 ? "pos" : "neg") + '">' + signed(good) + '</div></div>' +
+        '<div class="outcome"><div class="k">If it grades lower</div><div class="v ' + (bad >= 0 ? "pos" : "neg") + '">' + signed(bad) + '</div></div>' +
+        '<div class="outcome"><div class="k">Expected</div><div class="v ' + (expected >= 0 ? "pos" : "neg") + '">' + signed(expected) + '</div></div>' +
+      '</div>' +
+      (lowGuess ? '<p class="note">No lower-grade price entered, so a lower grade is counted as worth the same as the raw card.</p>' : '');
+  });
+})();
+</script>
+</body>
+</html>
