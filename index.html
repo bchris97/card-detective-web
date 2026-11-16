@@ -303,6 +303,14 @@
   .calc-cta a { color: var(--gold-bright); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
   .calc-note { font-size: 12px; color: var(--ink-mute); text-align: center; margin-top: 14px; }
 
+  .guides { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 760px; margin: 0 auto; }
+  @media (max-width: 640px) { .guides { grid-template-columns: 1fr; } }
+  a.guide { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; text-decoration: none; color: inherit; }
+  a.guide:hover { border-color: var(--gold); }
+  a.guide h3 { font-size: 16px; margin-bottom: 6px; color: var(--ink); }
+  a.guide p { color: var(--ink-dim); font-size: 14.5px; }
+  a.guide .more { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--gold-bright); }
+
   /* ── Pricing ── */
   .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 820px; margin: 0 auto; }
   .plan { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 26px 22px; text-align: center; position: relative; }
@@ -566,6 +574,38 @@
       <p class="calc-note"><a href="/should-i-grade-my-card/" style="color:var(--gold-bright)">Full grading calculator and guide</a>, including the chance of a lower grade.</p>
       <p class="calc-note">Rule-of-thumb estimate only. Grading outcomes vary; a card that grades PSA 8 or lower may be worth less than expected.</p>
     </form>
+  </div>
+</section>
+
+<section id="guides" aria-labelledby="guides-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="evidence-tag">Case Notes</span>
+      <h2 id="guides-h">Card collecting guides</h2>
+      <p>Free guides and tools for figuring out what you have and what it's worth.</p>
+    </div>
+    <div class="guides">
+      <a class="guide" href="/pokemon-card-scanner/">
+        <h3>Pokémon card scanner</h3>
+        <p>How scanning a Pokémon card works, why holo type changes the price, and how to check a card's value by hand.</p>
+        <span class="more">READ →</span>
+      </a>
+      <a class="guide" href="/how-to-tell-reverse-holo-pokemon-card/">
+        <h3>Reverse holo vs holo</h3>
+        <p>The 10-second tilt test and the pattern that gives away modern reverse holos, with photos of real cards.</p>
+        <span class="more">READ →</span>
+      </a>
+      <a class="guide" href="/psa-grading-scale/">
+        <h3>PSA grading scale explained</h3>
+        <p>What PSA 10, 9 and 8 mean, why one point matters so much, and what qualifiers like OC stand for.</p>
+        <span class="more">READ →</span>
+      </a>
+      <a class="guide" href="/should-i-grade-my-card/">
+        <h3>Is grading worth it? Calculator</h3>
+        <p>Weigh the grading fee against what a good grade, and a disappointing one, would be worth.</p>
+        <span class="more">TRY IT →</span>
+      </a>
+    </div>
   </div>
 </section>
 
