@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokémon Card Scanner: Check What Your Cards Are Worth</title>
+<meta name="description" content="Scan a Pokémon card with your iPhone to identify its set, number and holo type and see its current market price. Free: 10 scans a month, no account.">
+<link rel="canonical" href="https://carddetective.app/pokemon-card-scanner/">
+<meta name="apple-itunes-app" content="app-id=6766113008">
+<meta name="theme-color" content="#171210">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pokémon card scanner: check what your cards are worth">
+<meta property="og:description" content="Identify a Pokémon card's set, number and holo type from one photo and see its current market price.">
+<meta property="og:url" content="https://carddetective.app/pokemon-card-scanner/">
+<meta property="og:site_name" content="Card Detective">
+<meta property="og:image" content="https://carddetective.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://carddetective.app/og.png">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Card Detective", "item": "https://carddetective.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Pokémon card scanner", "item": "https://carddetective.app/pokemon-card-scanner/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is there a free Pokémon card scanner?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Card Detective is free to download on iPhone and includes 10 scans every month with no account. Pro adds more scans and collection tools." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a scanner tell holo, reverse holo and non-holo apart?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Card Detective reads the finish from your photo and checks it against the versions that card was actually printed in. Shine is hard to capture in a photo, so if the finish it shows doesn't match what you see when you tilt the card, trust the tilt." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the Pokémon card prices come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Card Detective shows the TCGplayer market price for that card in its finish when one is available, and current eBay asking prices otherwise. The app labels which one you're seeing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with graded Pokémon cards?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It identifies cards in PSA, BGS, CGC and similar holders, but shows the ungraded market price, clearly labelled as not reflecting the grade. It doesn't guess a graded price." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with Japanese or vintage Pokémon cards?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Card Detective is built and tested mainly on English-language cards. Japanese cards may not identify reliably." }
+    }
+  ]
+}
+</script>
+<style>
+  .wrap { max-width: 760px; }
+  .lede { color: var(--ink-dim); font-size: 17px; max-width: 600px; margin: 0 auto; }
+  .hero-cta { text-align: center; margin-top: 22px; }
+  .hero-cta .btn { margin-bottom: 8px; }
+  .free { font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: 0.06em; }
+  .split { display: grid; grid-template-columns: 1fr 240px; gap: 28px; align-items: start; margin: 8px 0 8px; }
+  .split img { width: 240px; height: auto; aspect-ratio: 552 / 1200; border-radius: 14px; border: 1px solid var(--border); display: block; }
+  @media (max-width: 640px) { .split { grid-template-columns: 1fr; } .split img { margin: 0 auto; width: 220px; } }
+  .reads { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+  @media (max-width: 480px) { .reads { grid-template-columns: 1fr; } }
+  .read { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+  .read strong { display: block; color: var(--ink); font-size: 15px; }
+  .read span { color: var(--ink-dim); font-size: 14px; }
+  article h2 { font-size: 22px; letter-spacing: -0.01em; margin: 40px 0 12px; }
+  article h2:first-child { margin-top: 0; }
+  article p, article li { color: var(--ink-dim); font-size: 16px; }
+  article p + p { margin-top: 12px; }
+  article ol, article ul { padding-left: 22px; margin-top: 8px; }
+  article li + li { margin-top: 8px; }
+  article ul + p, article ol + p { margin-top: 14px; }
+  article strong { color: var(--ink); }
+  .cta { background: var(--bg-card); border: 1px solid var(--gold); border-radius: 12px; padding: 24px 22px; text-align: center; margin: 44px 0; }
+  .cta h2 { margin: 0 0 6px; font-size: 20px; }
+  .cta p { color: var(--ink-dim); }
+  .faq { margin-top: 14px; }
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Card Detective home">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7.5" stroke="#d4a33d" stroke-width="2.4"/>
+        <line x1="16.6" y1="16.6" x2="23" y2="23" stroke="#d4a33d" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      Card Detective
+    </a>
+    <a class="nav-cta" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_pokemon_nav&amp;mt=8">GET THE APP</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="page">
+    <span class="tag">Pokémon · iPhone</span>
+    <h1>Pokémon card scanner: see what your cards are worth</h1>
+    <p class="lede">Snap a photo of any Pokémon card. Card Detective identifies the exact card, including its set, number and holo type, and shows its current market price.</p>
+    <div class="hero-cta">
+      <a class="btn" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_pokemon_hero&amp;mt=8">Download on the App Store</a>
+      <div class="free">10 FREE SCANS A MONTH · NO ACCOUNT NEEDED</div>
+    </div>
+  </header>
+
+  <article>
+    <div class="split">
+      <div>
+        <h2>How the Pokémon card scanner works</h2>
+        <ol>
+          <li><strong>Take a photo of the front.</strong> Lay the card flat in good light. Pokémon card backs are all the same, so tap "Skip back" when the app asks for the back.</li>
+          <li><strong>Card Detective identifies it.</strong> It reads the name and card number from your photo, looks the card up in a Pokémon card database, and fills in the set, rarity and year.</li>
+          <li><strong>See the price.</strong> You get the TCGplayer market price for that card in its finish when one is available, or current eBay asking prices when it isn't.</li>
+          <li><strong>Add it to your collection</strong> and watch the total. Set quantities for duplicates and sort cards into groups, like a binder or a pack you opened.</li>
+        </ol>
+      </div>
+      <img src="/img/scan.webp" width="552" height="1200" loading="lazy" decoding="async" alt="Card Detective camera screen with Use Camera and Choose from Library options">
+    </div>
+
+    <h2>What it reads from your card</h2>
+    <div class="reads">
+      <div class="read"><strong>Pokémon or Trainer name</strong><span>Including ex cards and Trainers</span></div>
+      <div class="read"><strong>Set</strong><span>Including the newest sets, from the card database</span></div>
+      <div class="read"><strong>Card number</strong><span>Like 098/193</span></div>
+      <div class="read"><strong>Holo type</strong><span>Plain, holo or reverse holo</span></div>
+      <div class="read"><strong>Rarity</strong><span>Common to special rares</span></div>
+      <div class="read"><strong>Year</strong><span>From the set's release</span></div>
+    </div>
+
+    <h2>Why holo type matters for price</h2>
+    <p>The plain, holo and reverse holo versions of a card share the same number, but they don't share a price. A scanner that only matches the card number can show you the wrong one. Card Detective checks the finish against the versions that card was actually printed in, and looks for the pattern modern reverse holos carry behind the attack text.</p>
+    <p>Shine is hard to see in a photo, so it isn't perfect. If the finish doesn't match what you see when you tilt the card, trust the tilt. Our <a href="/how-to-tell-reverse-holo-pokemon-card/">reverse holo vs holo guide</a> shows how to check in ten seconds.</p>
+
+    <h2>How to check what a Pokémon card is worth by hand</h2>
+    <ol>
+      <li><strong>Find the set and number.</strong> On modern cards they're in the bottom-left corner: a set code like PAL and a number like 098/193.</li>
+      <li><strong>Work out the finish:</strong> plain, holo or reverse holo. Tilt the card under a light.</li>
+      <li><strong>Judge the condition.</strong> Prices you find online are usually for near-mint cards. Whitening, scratches or bends lower the value.</li>
+      <li><strong>Look up recent prices</strong> for that exact set, number and finish. Sold prices are the best guide; asking prices, what sellers list cards for, usually run higher.</li>
+    </ol>
+    <p>That's what the scanner does for you in a few seconds. Most common and uncommon cards are worth little on their own; the value in a bulk collection is usually in a handful of rares, ex cards and special art cards, which is why it helps to scan them all.</p>
+
+    <h2>Tips for a good scan</h2>
+    <ul>
+      <li>Lay the card on a plain, dark surface and fill the frame with it.</li>
+      <li>Use bright, even light. Avoid a lamp directly overhead on holo cards, where glare can hide the number.</li>
+      <li>Take cards out of thick top loaders if the number is hard to read through the plastic. Penny sleeves are fine.</li>
+      <li>If a card comes back wrong, open it and tap "Edit" to correct any detail.</li>
+    </ul>
+
+    <h2>Also scans sports, Magic and Yu-Gi-Oh! cards</h2>
+    <p>The same app identifies baseball, basketball, football and hockey cards, plus Magic: The Gathering and Yu-Gi-Oh!. Everything goes into one collection with one total. Thinking about grading a card? Try the <a href="/should-i-grade-my-card/">grading calculator</a> or read <a href="/psa-grading-scale/">what each PSA grade means</a>.</p>
+  </article>
+
+  <div class="cta">
+    <h2>Scan your Pokémon cards free</h2>
+    <p>10 free scans every month, no account needed. Pro adds 250 scans a month, cloud backup, price history and spreadsheet export.</p>
+    <a class="btn" href="https://apps.apple.com/app/apple-store/id6766113008?pt=128860059&amp;ct=web_pokemon_page&amp;mt=8">Download on the App Store</a>
+  </div>
+
+  <h2 class="sec">Questions</h2>
+  <div class="faq">
+    <details>
+      <summary>Is there a free Pokémon card scanner?</summary>
+      <div class="a"><p>Yes. Card Detective is free to download on iPhone and includes 10 scans every month with no account. Pro adds more scans and collection tools.</p></div>
+    </details>
+    <details>
+      <summary>Can a scanner tell holo, reverse holo and non-holo apart?</summary>
+      <div class="a"><p>Card Detective reads the finish from your photo and checks it against the versions that card was actually printed in. Shine is hard to capture in a photo, so if the finish it shows doesn't match what you see when you tilt the card, trust the tilt.</p></div>
+    </details>
+    <details>
+      <summary>Where do the Pokémon card prices come from?</summary>
+      <div class="a"><p>Card Detective shows the TCGplayer market price for that card in its finish when one is available, and current eBay asking prices otherwise. The app labels which one you're seeing.</p></div>
+    </details>
+    <details>
+      <summary>Does it work with graded Pokémon cards?</summary>
+      <div class="a"><p>It identifies cards in PSA, BGS, CGC and similar holders, but shows the ungraded market price, clearly labelled as not reflecting the grade. It doesn't guess a graded price.</p></div>
+    </details>
+    <details>
+      <summary>Does it work with Japanese or vintage Pokémon cards?</summary>
+      <div class="a"><p>Card Detective is built and tested mainly on English-language cards. Japanese cards may not identify reliably.</p></div>
+    </details>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/pokemon-card-scanner/">Pokémon card scanner</a>
+      <a href="/psa-grading-scale/">PSA grading scale</a>
+      <a href="/should-i-grade-my-card/">Grading calculator</a>
+      <a href="/how-to-tell-reverse-holo-pokemon-card/">Reverse holo vs holo</a>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+    </div>
+    <p class="copyright">© 2026 CARD DETECTIVE · Pokémon is a trademark of Nintendo, Creatures and GAME FREAK. Card Detective is not affiliated with or endorsed by them.</p>
+  </div>
+</footer>
+</body>
+</html>
