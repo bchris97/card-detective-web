@@ -25,7 +25,7 @@
   "@type": "Article",
   "headline": "Reverse holo vs holo: how to tell Pokémon cards apart",
   "description": "Reverse holo, holo or plain? The 10-second tilt test, the pattern that gives away modern reverse holos in a photo, and why the card number can’t tell you.",
-  "image": "https://carddetective.app/og.png",
+  "image": ["https://carddetective.app/img/holo/reverse-cubone.webp", "https://carddetective.app/img/holo/textbox-reverse-wattrel.webp", "https://carddetective.app/og.png"],
   "datePublished": "2026-11-15",
   "dateModified": "2026-11-15",
   "mainEntityOfPage": "https://carddetective.app/how-to-tell-reverse-holo-pokemon-card/",
@@ -95,6 +95,14 @@
   article strong { color: var(--ink); }
   .callout { background: var(--bg-card); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 16px 0; }
   .callout p { font-size: 15px; }
+  .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 6px; }
+  .photos figure, .boxes figure { margin: 0; }
+  .photos img, .boxes img { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); }
+  .photos figcaption, .boxes figcaption { font-size: 13.5px; color: var(--ink-dim); margin-top: 8px; text-align: center; line-height: 1.4; }
+  .photos figcaption strong, .boxes figcaption strong { color: var(--ink); display: block; }
+  .boxes { display: grid; gap: 14px; margin: 16px 0 6px; }
+  @media (min-width: 640px) { .boxes { grid-template-columns: 1fr 1fr 1fr; } }
+  .photo-note { font-size: 13px; color: var(--ink-mute); text-align: center; margin-bottom: 4px; }
   .cta { background: var(--bg-card); border: 1px solid var(--gold); border-radius: 12px; padding: 24px 22px; text-align: center; margin: 44px 0; }
   .cta h2 { margin: 0 0 6px; font-size: 20px; }
   .cta p { color: var(--ink-dim); }
@@ -181,6 +189,23 @@
   </div>
   <p class="diagram-note">Simplified diagram. The circle on the reverse holo stands for the big pattern behind the text on modern cards.</p>
 
+  <h2 class="sec" style="margin-top:8px">Real cards, side by side</h2>
+  <div class="photos">
+    <figure>
+      <img src="/img/holo/plain-honchkrow.webp" width="360" height="529" loading="lazy" decoding="async" alt="Plain (non-holo) Honchkrow Pokémon card with a flat picture and flat text box">
+      <figcaption><strong>Plain</strong>Honchkrow. Nothing shines.</figcaption>
+    </figure>
+    <figure>
+      <img src="/img/holo/holo-ceruledge.webp" width="360" height="565" loading="lazy" decoding="async" alt="Holo Ceruledge Pokémon card with sparkling foil in the picture and a plain text box">
+      <figcaption><strong>Holo</strong>Ceruledge. The picture sparkles.</figcaption>
+    </figure>
+    <figure>
+      <img src="/img/holo/reverse-cubone.webp" width="360" height="514" loading="lazy" decoding="async" alt="Reverse holo Cubone Pokémon card with a foil pattern behind the text and a flat picture">
+      <figcaption><strong>Reverse holo</strong>Cubone. Foil around the picture.</figcaption>
+    </figure>
+  </div>
+  <p class="photo-note">Photos of our own cards, each confirmed by tilting it under a light.</p>
+
   <article>
     <h2>The 10-second tilt test</h2>
     <ol>
@@ -204,6 +229,20 @@
     <h2>The shortcut on modern cards: look behind the attack text</h2>
     <p>On most Scarlet &amp; Violet era cards (2023 onward), reverse holos carry a large pattern behind the attack text: a big circle or gear with the Pokémon's energy symbol in it, or a Poké Ball on Trainer cards, surrounded by repeating shapes. A plain card has only a soft, mottled texture there.</p>
     <p>Because that pattern is printed in the foil, it usually shows even in a flat photo where you can't see any shine. When we checked a batch of real cards, every one with that pattern turned out to be reverse holo when tilted.</p>
+    <div class="boxes">
+      <figure>
+        <img src="/img/holo/textbox-plain-honchkrow.webp" width="600" height="272" loading="lazy" decoding="async" alt="Close-up of a plain Pokémon card's attack text with only a soft mottled texture behind it">
+        <figcaption><strong>Plain</strong>Soft, even texture behind the text</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/holo/textbox-reverse-girafarig.webp" width="600" height="263" loading="lazy" decoding="async" alt="Close-up of a reverse holo Pokémon card's attack text with a large gear pattern and star symbol behind it">
+        <figcaption><strong>Reverse holo</strong>A big gear with the energy symbol (here a star)</figcaption>
+      </figure>
+      <figure>
+        <img src="/img/holo/textbox-reverse-wattrel.webp" width="600" height="268" loading="lazy" decoding="async" alt="Close-up of a reverse holo Pokémon card's attack text with a large gear pattern and lightning symbol behind it">
+        <figcaption><strong>Reverse holo</strong>The same pattern with a lightning symbol</figcaption>
+      </figure>
+    </div>
     <div class="callout">
       <p><strong>Where the shortcut fails:</strong> some special sets use a different reverse pattern, like a brushed sweep or a Poké Ball design, instead of the energy circle. And a plain card photographed under glare can look like it has a pattern. If it matters for value, do the tilt test.</p>
     </div>
